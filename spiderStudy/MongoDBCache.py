@@ -1,11 +1,11 @@
 from urllib.parse import urlsplit
 import re
-import os
 import pickle
 from datetime import datetime, timedelta
 import zlib
 from pymongo import MongoClient
 import time
+import zlib
 
 class MongoCache(object):
     def __init__(self, client = None, expires = timedelta(days = 30)):
@@ -18,7 +18,7 @@ class MongoCache(object):
             '_id':url
         })
         if record:
-            return record['result']
+            return pickle.loads(zlib.decompress(record['result']))
         else:
             return None
 
@@ -28,7 +28,7 @@ class MongoCache(object):
             '_id':url
         }, {
             '$set':{
-                'result':result,
+                'result':zlib.compress(pickle.dumps(result)),
                 'timestamp':datetime.utcnow()
             }
         }, upsert=True)
@@ -39,6 +39,5 @@ if __name__ == '__main__':
         'html':'....'
     }
     url = 'http://www.baidu.com'
-    time.sleep(70)
     cache[url] = result
     print(cache[url])
