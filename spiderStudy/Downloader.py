@@ -4,7 +4,6 @@ from bs4 import BeautifulSoup
 from urllib.parse import urlparse, urlsplit
 from datetime import datetime, timedelta
 from time import sleep
-from DiskCache import DiskCache
 from time import sleep
 
 class Downloader(object):
@@ -58,9 +57,3 @@ class Throttle(object):
             if sleep_secs > 0:
                 sleep(sleep_secs)
         self.domains[domain] = datetime.now()
-
-if __name__ == '__main__':
-    url_download = Downloader(10, cache = DiskCache('E:\cache',expires = timedelta(seconds=5)))
-    url_download('http://www.baidu.com')
-    url_download('http://www.qq.com')
-    print(url_download.cache['http://www.qq.com']['code'])
