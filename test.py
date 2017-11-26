@@ -1,17 +1,9 @@
 from pymongo import MongoClient
 import datetime
+import csv
+from zipfile import ZipFile
 
-client = MongoClient('localhost', 27017)
-db = client.tes_database
-collection = db.test_collection
-
-post = {
-    'author':'Jaon95',
-    'title':'first novel',
-    'content':'this is a post',
-    'time':datetime.datetime.utcnow()
-}
-
-posts = db.posts
-post_id = posts.insert_one(post).inserted_id
-print(post_id)
+with ZipFile('F://top-1million-sites.csv.zip','r') as zf:
+    cvs_filename = zf.namelist()[0]
+    for _, website in csv.reader(zf.open(cvs_filename)):
+        print(website)
