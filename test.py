@@ -1,21 +1,25 @@
-from pymongo import MongoClient
-import datetime
-import csv
-from zipfile import ZipFile
-import io
-from spiderStudy import LinkCrawler
-from spiderStudy import MongoDBCache
+import string
+from spiderStudy import Downloader
+import json
 
-with ZipFile('F://top-1million-sites.csv.zip') as zf:
-    cvs_filename = zf.namelist()[0]
-    csv_reader = csv.reader(zf.open(cvs_filename))
-    f = io.TextIOWrapper(zf.open(cvs_filename))
-    csv_reader = csv.reader(f)
-    urls = []
-    nums = 0
-    for _, website in csv_reader:
-        if nums >= 50: break
-        urls.append('https://www.'+website)
-        nums += 1
-    LinkCrawler.link_crawler(urls, max_urls = 50,cache = MongoDBCache.MongoCache())
-    
+template_url = 'http://example.webscraping.com/places/ajax/search.json?&search_term={}&page_size=10&page={}'
+
+countries = set()
+D = Downloader.Downloader()
+
+for letter in string.ascii_letters:
+    page = 0
+    while True:
+        html = D(template_url.format(page, letter))
+        try:
+            ajax = json.loads(html)
+        except Exception as identifier:
+            ajax = None
+        else:
+            for record in ajax['records']:
+                countries.add(record['country'])
+        page += 1
+        if ajax is None or page >= ajax['num_pages']:
+            break
+
+open('countries.txt', 'w').write('\n'.join(sorted(countries)))

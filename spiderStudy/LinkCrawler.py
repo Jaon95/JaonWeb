@@ -2,7 +2,8 @@
 from . import Downloader
 
 def link_crawler(seed_url,  delay=5,  max_urls=-1, user_agent='wswp', scrape_callback=None, cache=None):
-    crawl_queue = seed_url
+    crawl_queue = []
+    crawl_queue.extend(seed_url)
 
     num_urls = 0
 
