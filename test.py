@@ -1,25 +1,36 @@
-import string
+import requests
 from spiderStudy import Downloader
-import json
+import lxml.html
+import cssselect
 
-template_url = 'http://example.webscraping.com/places/ajax/search.json?&search_term={}&page_size=10&page={}'
+EMAIL = 'jasonlmh0314@outlook.com'
+PASSWORD = 'webscraping0314'
+def parseForm(html):
+    tree = lxml.html.fromstring(html)
+    data = {}
+    for item in tree.cssselect('form input'):
+        if item.get('name'):
+            data[item.get('name')] = item.get('value')
+    return data
 
-countries = set()
-D = Downloader.Downloader()
-
-for letter in string.ascii_letters:
-    page = 0
-    while True:
-        html = D(template_url.format(page, letter))
-        try:
-            ajax = json.loads(html)
-        except Exception as identifier:
-            ajax = None
-        else:
-            for record in ajax['records']:
-                countries.add(record['country'])
-        page += 1
-        if ajax is None or page >= ajax['num_pages']:
-            break
-
-open('countries.txt', 'w').write('\n'.join(sorted(countries)))
+s =requests.Session()
+data = parseForm(s.get('http://example.webscraping.com/places/default/user/login').text)
+data['email'] = EMAIL
+data['password'] = PASSWORD
+for item in s.cookies.iterkeys():
+    print(item +': '+s.cookies[item])
+rep = s.post('http://example.webscraping.com/places/default/user/login', data = data)
+# rep = s.get('http://example.webscraping.com/places/default/edit/Afghanistan-1')
+# data = parseForm(rep.text)
+# print(data)
+for item in s.cookies.iterkeys():
+    print(item +': '+s.cookies[item])
+print(rep.url)
+rep = s.get('http://example.webscraping.com/places/default/edit/Afghanistan-1')
+data = parseForm(rep.text)
+print(data)
+data['population'] = int(data['population'])+1
+s.post('http://example.webscraping.com/places/default/edit/Afghanistan-1', data = data)
+rep = s.get('http://example.webscraping.com/places/default/edit/Afghanistan-1')
+data = parseForm(rep.text)
+print(data)
