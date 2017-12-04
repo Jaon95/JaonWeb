@@ -1,0 +1,28 @@
+1512211241615	geckodriver	INFO	geckodriver 0.19.1
+1512211241626	geckodriver	INFO	Listening on 127.0.0.1:53981
+1512211243684	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-profile" "C:\\Users\\Jaon\\AppData\\Local\\Temp\\rust_mozprofile.zlzTOaLr7N5T"
+1512211335363	geckodriver	INFO	geckodriver 0.19.1
+1512211335372	geckodriver	INFO	Listening on 127.0.0.1:54238
+1512211337426	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-profile" "C:\\Users\\Jaon\\AppData\\Local\\Temp\\rust_mozprofile.P5lIDv6IQcnA"
+1512211338261	Marionette	INFO	Enabled via --marionette
+Unable to read VR Path Registry from C:\Users\Jaon\AppData\Local\openvr\openvrpaths.vrpath
+[Child 3288, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 3288, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+1512211340279	Marionette	INFO	Listening on port 54248
+1512211340704	Marionette	WARN	TLS certificate errors will be ignored for this session
+1512211340783	Marionette	DEBUG	Register listener.js for window 4294967297
+1512211340820	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512211341725	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512211341725	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512211344386	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://example.webscraping.com/"
+1512211345197	Marionette	DEBUG	Received DOM event "pageshow" for "http://example.webscraping.com/"
+Unable to read VR Path Registry from C:\Users\Jaon\AppData\Local\openvr\openvrpaths.vrpath
+[Parent 4248, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+Unable to read VR Path Registry from C:\Users\Jaon\AppData\Local\openvr\openvrpaths.vrpath
+[Child 9284, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 9284, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Parent 4248, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+Unable to read VR Path Registry from C:\Users\Jaon\AppData\Local\openvr\openvrpaths.vrpath
+[Child 10156, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 10156, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+*** UTM:SVC TimerManager:registerTimer called after profile-before-change notification. Ignoring timer registration for id: telemetry_modules_ping

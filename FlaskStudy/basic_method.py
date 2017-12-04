@@ -1,0 +1,11 @@
+from flask import url_for, Flask
+
+app = Flask(__name__)
+
+@app.route('/item/1/')
+def item(id):
+    pass
+
+with app.test_request_context():
+    print(url_for('item', id = '1'))
+    print(url_for('item', id =2, next = '/'))
