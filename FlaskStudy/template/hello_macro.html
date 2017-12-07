@@ -1,0 +1,5 @@
+{% import 'macro.html' as macro %}
+{% from 'macro.html' import hello as _hello, strftime%}
+
+<p>{{ macro.hello('world')}}</p>
+<p>{{ strftime('2017-12-05 22:49:00.787063')}}</p>
