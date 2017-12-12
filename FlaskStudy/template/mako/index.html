@@ -1,0 +1,17 @@
+<%inherit file="base.html"/>
+
+<%def name="title()">Index</%def>
+
+<%block name="head">
+    ${parent.head()}
+    <style type="text/css">
+        .imporant {color: red;}
+    </style>
+</%block>
+
+<%block name="content">
+    <h1>Index</h1>
+    <p class="important">
+        Welcome to my index !
+    </p>
+</%block>

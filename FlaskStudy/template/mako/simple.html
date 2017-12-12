@@ -1,0 +1,26 @@
+<%!
+    from datetime import datetime
+    from itertools import repeat
+%>
+
+<%
+    rows = repeat(range(10), 10)
+%>
+
+<%def name = "main()">
+    <table>
+        % for row in rows:
+            ${makerow(row)}
+        % endfor
+    </table>
+</%def>
+
+<%def name = "makerow(row)">
+    <tr>
+        % for name in row:
+            <td>${name}</td>
+        % endfor
+    </tr>
+</%def>
+
+${main()}

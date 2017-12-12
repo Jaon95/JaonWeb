@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+    <head>
+        <%block name="head">
+            <title>${self.title()} - My Page</title>
+        </%block>
+    </head>
+
+    <body>
+        <div id ="content">
+            <%block name="content"/>
+        </div>
+
+        <div id = "footer">
+            <%block name="footer"/>
+        </div>
+    </body>
+</html>
+
+<%def name="title()">
+</%def>
