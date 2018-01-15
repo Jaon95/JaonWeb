@@ -12,10 +12,11 @@ class Downloader(object):
         if method == 'GET':
             return self.session.get(url)
 
-def handlerKNKC(httpsession, resp):
+def knkcHanlder(httpsession, resp):
     html = resp.text
     htmltree = lxml.html.fromstring(html)
-    #sava the data
+    
+    
     #code...
 
     #返回
