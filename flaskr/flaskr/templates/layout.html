@@ -19,10 +19,6 @@
                 {% endif%}
         </div>
 
-        {% for message in get_flashed_message() %}
-           <div class="flash">{{message}}</div>
-        {% endfor %}
-
         {% block body %}{% endblock %}
     </div>
 </body>
